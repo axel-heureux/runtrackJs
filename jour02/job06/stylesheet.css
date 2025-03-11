@@ -1,0 +1,18 @@
+/* Par défaut, la page a un fond blanc et du texte noir */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+    transition: background-color 0.5s, color 0.5s; /* Transition douce */
+}
+
+/* Style appliqué lorsque le code Konami est détecté */
+body.konami {
+    background-color: #5e2a84;  /* Couleur de fond (violet, par exemple pour "La Plateforme_") */
+    color: white;  /* Texte en blanc */
+}
+
+/* Style supplémentaire pour le titre */
+h1.konami {
+    color: white;
+}
