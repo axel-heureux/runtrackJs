@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>JSON Value Key</h2>
+    <label for="jsonInput">JSON :</label>
+    <input type="text" id="jsonInput" value='{"name": "John", "age": 25, "city": "Marseille"}'>
+    <br>
+    <label for="keyInput">Clé :</label>
+    <input type="text" id="keyInput" value="city">
+    <br>
+    <button onclick="getValue()">Obtenir la valeur</button>
+    <p>Résultat : <span id="result"></span></p>
+    <script src="script.js"></script>
+</body>
+</html>
