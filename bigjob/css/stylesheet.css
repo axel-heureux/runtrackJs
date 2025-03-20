@@ -1,0 +1,11 @@
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+}
