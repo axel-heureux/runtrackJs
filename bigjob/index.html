@@ -14,116 +14,108 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
-        <!-- Container wrapper -->
-        <div class="container">
-            <!-- Navbar brand -->
-            <a class="navbar-brand me-2" href="#">
-                <img
-                    src="assets/images/logo-laplateforme-2024.png"
-                    height="30"
-                    alt="Logo La Plateforme"
-                    loading="lazy"
-                    style="margin-top: -1px;"
-                />
-            </a>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+            <!-- Container wrapper -->
+            <div class="container">
+                <!-- Navbar brand -->
+                <a class="navbar-brand me-2" href="index.html">
+                    <img
+                        src="assets/images/logo-laplateforme-2024.png"
+                        height="30"
+                        alt="Logo La Plateforme"
+                        loading="lazy"
+                        style="margin-top: -1px;"
+                    />
+                </a>
             
-            <!-- Toggle button -->
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-mdb-collapse-init
-                data-mdb-target="#navbarButtonsExample"
-                aria-controls="navbarButtonsExample"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <i class="fas fa-bars"></i>
-            </button>
+                <!-- Toggle button -->
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-collapse-init
+                    data-mdb-target="#navbarButtonsExample"
+                    aria-controls="navbarButtonsExample"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <i class="fas fa-bars"></i>
+                </button>
             
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse" id="navbarButtonsExample">
-                <!-- Left links -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Accueil</a>
-                    </li>
-                </ul>
-                <!-- Left links -->
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                    <!-- Left links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="calendar.html" id="calendar-link" style="display: none;">Calendrier</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="backoffice.html" id="backoffice-link" style="display: none;">Backoffice</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin.html" id="admin-link" style="display: none;">Administration</a>
+                        </li>
+                    </ul>
+                    <!-- Left links -->
                 
-                <div class="d-flex align-items-center">
-                    <!-- Se connecter -->
-                    <button type="button" class="btn btn-link px-3 me-2" data-mdb-ripple-init>
-                    <a href="connexion.html" class="text-decoration-none">Se connecter</a>
-                    </button>
-
-                <!-- Inscription -->
-                    <button type="button" class="btn btn-primary me-3" data-mdb-ripple-init>
-                    <a href="inscription.html" class="text-decoration-none text-white">Inscription</a>
-                    </button>
-                    <a
-                        class="btn btn-dark px-3"
-                        href="https://github.com/axel-heureux/runtrackJs"
-                        role="button"
-                        data-mdb-ripple-init
-                    >
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-            </div>
-            <!-- Collapsible wrapper -->
-        </div>
-        <!-- Container wrapper -->
-    </nav>
-    <!-- Navbar -->
-
-    <div class="carousel-container">
-        <div id="carouselExampleCaptions" class="carousel slide" data-mdb-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="assets/images/slide1.webp" class="d-block w-100" alt="Slide 1">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Planifiez votre présence</h5>
-                        <p>Accédez à un calendrier interactif pour choisir vos jours de présence.</p>
+                    <div class="d-flex align-items-center">
+                        <!-- Se connecter -->
+                        <button type="button" class="btn btn-link px-3 me-2" data-mdb-ripple-init>
+                            <a href="connexion.html" class="text-decoration-none">Se connecter</a>
+                        </button>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="assets/images/slide2.webp" class="d-block w-100" alt="Slide 2">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Demandez une autorisation</h5>
-                        <p>Soumettez votre demande de présence en un clic.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/images/slide3.webp" class="d-block w-100" alt="Slide 3">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Un accès sécurisé</h5>
-                        <p>Seuls les membres de La Plateforme_ peuvent s’inscrire.</p>
-                    </div>
-                </div>
+                <!-- Collapsible wrapper -->
             </div>
-            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div>
+            <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+    </header>
     
 
-    <!-- MDBootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+    <main>
+        <div class="container d-flex justify-content-center align-items-center vh-100">
+            <div class="row justify-content-evenly gx-5 w-100">
+              <div class="col-md-4">
+                <div class="card">
+                  <img src="assets/images/1.jpg" class="card-img-top" alt="Espace de travail">
+                  <div class="card-body">
+                    <p class="card-text">Planifiez votre présence avec notre calendrier interactif et gérez facilement vos journées de travail.</p>
+                    <button type="button" class="btn btn-primary">En savoir plus</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-4">
+                <div class="card">
+                  <img src="assets/images/2.jpg" class="card-img-top" alt="Demande d'autorisation">
+                  <div class="card-body">
+                    <p class="card-text">Soumettez votre demande de présence en un clic et attendez votre validation en toute simplicité.</p>
+                    <button type="button" class="btn btn-primary">Faire une demande</button>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="col-md-4">
+                <div class="card">
+                  <img src="assets/images/3.jpg" class="card-img-top" alt="Accès sécurisé">
+                  <div class="card-body">
+                    <p class="card-text">Profitez d'un accès sécurisé : seuls les membres validés peuvent s'inscrire et gérer leurs réservations.</p>
+                    <button type="button" class="btn btn-primary">Accéder à mon espace</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/script.js"></script>
 </body>
 </html>

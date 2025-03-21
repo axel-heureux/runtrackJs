@@ -14,76 +14,109 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="css/index.css">
+    <!-- FullCalendar CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
-        <!-- Container wrapper -->
-        <div class="container">
-            <!-- Navbar brand -->
-            <a class="navbar-brand me-2" href="#">
-                <img
-                    src="assets/images/logo-laplateforme-2024.png"
-                    height="30"
-                    alt="Logo La Plateforme"
-                    loading="lazy"
-                    style="margin-top: -1px;"
-                />
-            </a>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+            <!-- Container wrapper -->
+            <div class="container">
+                <!-- Navbar brand -->
+                <a class="navbar-brand me-2" href="index.html">
+                    <img
+                        src="assets/images/logo-laplateforme-2024.png"
+                        height="30"
+                        alt="Logo La Plateforme"
+                        loading="lazy"
+                        style="margin-top: -1px;"
+                    />
+                </a>
             
-            <!-- Toggle button -->
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-mdb-collapse-init
-                data-mdb-target="#navbarButtonsExample"
-                aria-controls="navbarButtonsExample"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <i class="fas fa-bars"></i>
-            </button>
+                <!-- Toggle button -->
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-collapse-init
+                    data-mdb-target="#navbarButtonsExample"
+                    aria-controls="navbarButtonsExample"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <i class="fas fa-bars"></i>
+                </button>
             
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse" id="navbarButtonsExample">
-                <!-- Left links -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Accueil</a>
-                    </li>
-                </ul>
-                <!-- Left links -->
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                    <!-- Left links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="calendar.html">Calendrier</a>
+                        </li>
+                    </ul>
+                    <!-- Left links -->
                 
-                <div class="d-flex align-items-center">
-                    <!-- Se connecter -->
-                    <button type="button" class="btn btn-link px-3 me-2" data-mdb-ripple-init>
-                    <a href="connexion.html" class="text-decoration-none">Se connecter</a>
-                    </button>
+                    <div class="d-flex align-items-center">
+                        <!-- Se connecter -->
+                        <button type="button" class="btn btn-link px-3 me-2" data-mdb-ripple-init>
+                            <a href="connexion.html" class="text-decoration-none">Se connecter</a>
+                        </button>
+                    </div>
+                </div>
+                <!-- Collapsible wrapper -->
+            </div>
+            <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+    </header>
 
-                <!-- Inscription -->
-                    <button type="button" class="btn btn-primary me-3" data-mdb-ripple-init>
-                    <a href="inscription.html" class="text-decoration-none text-white">Inscription</a>
-                    </button>
-                    <a
-                        class="btn btn-dark px-3"
-                        href="https://github.com/axel-heureux/runtrackJs"
-                        role="button"
-                        data-mdb-ripple-init
-                    >
-                        <i class="fab fa-github"></i>
-                    </a>
+    <main>
+        <div class="container my-5">
+            <!-- Calendar -->
+            <div id="calendar"></div>
+
+            <!-- Modal for event request -->
+            <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="eventModalLabel">Demande de Présence</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="presenceForm">
+                                <div class="mb-3">
+                                    <label for="studentName" class="form-label">Nom de l'Élève</label>
+                                    <input type="text" class="form-control" id="studentName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="presenceDate" class="form-label">Date</label>
+                                    <input type="text" class="form-control" id="presenceDate" disabled>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Soumettre</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Collapsible wrapper -->
         </div>
-        <!-- Container wrapper -->
-    </nav>
-    <!-- Navbar -->
+    </main>
 
-    
-
-    <!-- MDBootstrap JS -->
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+    <!-- FullCalendar JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
+
+    <script src="js/calendar.js"></script>
 </body>
 </html>

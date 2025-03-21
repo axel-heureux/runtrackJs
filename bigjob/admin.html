@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Gestion des Rôles et Droits</title>
+    <!-- MDBootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+            <!-- Container wrapper -->
+            <div class="container">
+                <!-- Navbar brand -->
+                <a class="navbar-brand me-2" href="index.html">
+                    <img
+                        src="assets/images/logo-laplateforme-2024.png"
+                        height="30"
+                        alt="Logo La Plateforme"
+                        loading="lazy"
+                        style="margin-top: -1px;"
+                    />
+                </a>
+            
+                <!-- Toggle button -->
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-collapse-init
+                    data-mdb-target="#navbarButtonsExample"
+                    aria-controls="navbarButtonsExample"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <i class="fas fa-bars"></i>
+                </button>
+            
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                    <!-- Left links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="backoffice.html">Backoffice</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin.html">Administration</a>
+                        </li>
+                    </ul>
+                    <!-- Left links -->
+                
+                    <div class="d-flex align-items-center">
+                        <!-- Se connecter -->
+                        <button type="button" class="btn btn-link px-3 me-2" data-mdb-ripple-init>
+                            <a href="connexion.html" class="text-decoration-none">Se connecter</a>
+                        </button>
+                    </div>
+                </div>
+                <!-- Collapsible wrapper -->
+            </div>
+            <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+    </header>
+
+    <main>
+        <div class="container my-5">
+            <h2 class="text-center">Gestion des Rôles et Droits des Utilisateurs</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Nom de l'Utilisateur</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Rôle</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="user-table-body">
+                    <!-- Les utilisateurs seront injectés ici dynamiquement -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+
+    <script>
+        // Exemple d'utilisateurs
+        const users = [
+            { id: 1, nom: 'Jean Dupont', email: 'jean@example.com', role: 'élève' },
+            { id: 2, nom: 'Marie Dupuis', email: 'marie@example.com', role: 'modérateur' },
+            { id: 3, nom: 'Paul Durand', email: 'paul@example.com', role: 'administrateur' }
+        ];
+
+        // Charger la liste des utilisateurs dans le tableau
+        function loadUsers() {
+            const tbody = document.getElementById('user-table-body');
+            tbody.innerHTML = ''; // Effacer les anciennes lignes
+            users.forEach(user => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${user.nom}</td>
+                    <td>${user.email}</td>
+                    <td>${user.role}</td>
+                    <td>
+                        <button class="btn btn-primary" onclick="changeRole(${user.id}, 'élève')">Élève</button>
+                        <button class="btn btn-secondary" onclick="changeRole(${user.id}, 'modérateur')">Modérateur</button>
+                        <button class="btn btn-danger" onclick="changeRole(${user.id}, 'administrateur')">Administrateur</button>
+                        <button class="btn btn-warning" onclick="removeRole(${user.id})">Supprimer le rôle</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Fonction pour changer le rôle de l'utilisateur
+        function changeRole(userId, newRole) {
+            const user = users.find(u => u.id === userId);
+            if (user) {
+                user.role = newRole;
+                loadUsers(); // Recharger les utilisateurs après modification
+                alert(`Le rôle de ${user.nom} a été changé en ${newRole}`);
+                // Envoie une requête au serveur pour enregistrer ce changement de rôle
+                updateUserRole(userId, newRole);
+            }
+        }
+
+        // Fonction pour supprimer le rôle de l'utilisateur
+        function removeRole(userId) {
+            const user = users.find(u => u.id === userId);
+            if (user) {
+                user.role = 'élève'; // On remet le rôle à "élève" par défaut
+                loadUsers(); // Recharger les utilisateurs après modification
+                alert(`Le rôle de ${user.nom} a été supprimé.`);
+                // Envoie une requête au serveur pour enregistrer cette suppression de rôle
+                updateUserRole(userId, 'élève');
+            }
+        }
+
+        // Simuler une requête vers le serveur pour enregistrer le changement de rôle
+        function updateUserRole(userId, newRole) {
+            $.ajax({
+                url: `/update-role/${userId}`,
+                method: 'POST',
+                data: { role: newRole },
+                success: function(response) {
+                    console.log('Rôle mis à jour avec succès');
+                },
+                error: function(error) {
+                    alert('Erreur lors de la mise à jour du rôle');
+                }
+            });
+        }
+
+        // Charger les utilisateurs au chargement de la page
+        loadUsers();
+    </script>
+    
+</body>
+</html>

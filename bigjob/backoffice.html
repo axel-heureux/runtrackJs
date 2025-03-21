@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backoffice - Gestion des Présences</title>
+    <!-- MDBootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/stylesheet.css">
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+            <!-- Container wrapper -->
+            <div class="container">
+                <!-- Navbar brand -->
+                <a class="navbar-brand me-2" href="index.html">
+                    <img
+                        src="assets/images/logo-laplateforme-2024.png"
+                        height="30"
+                        alt="Logo La Plateforme"
+                        loading="lazy"
+                        style="margin-top: -1px;"
+                    />
+                </a>
+            
+                <!-- Toggle button -->
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-collapse-init
+                    data-mdb-target="#navbarButtonsExample"
+                    aria-controls="navbarButtonsExample"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <i class="fas fa-bars"></i>
+                </button>
+            
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                    <!-- Left links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="backoffice.html">Backoffice</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin.html">Administration</a>
+                        </li>
+                    </ul>
+                    <!-- Left links -->
+                
+                    <div class="d-flex align-items-center">
+                        <!-- Se connecter -->
+                        <button type="button" class="btn btn-link px-3 me-2" data-mdb-ripple-init>
+                            <a href="connexion.html" class="text-decoration-none">Se connecter</a>
+                        </button>
+                    </div>
+                </div>
+                <!-- Collapsible wrapper -->
+            </div>
+            <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+    </header>
+
+    <main>
+        <div class="container my-5">
+            <h2 class="text-center">Gestion des Demandes de Présence</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Nom de l'Élève</th>
+                        <th scope="col">Date de Présence</th>
+                        <th scope="col">Statut</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Exemple de demande -->
+                    <tr>
+                        <td>Jean Dupont</td>
+                        <td>2025-03-25</td>
+                        <td><span class="badge bg-warning">En attente</span></td>
+                        <td>
+                            <button class="btn btn-success" onclick="accepter(1)">Accepter</button>
+                            <button class="btn btn-danger" onclick="refuser(1)">Refuser</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Marie Dupuis</td>
+                        <td>2025-03-26</td>
+                        <td><span class="badge bg-warning">En attente</span></td>
+                        <td>
+                            <button class="btn btn-success" onclick="accepter(2)">Accepter</button>
+                            <button class="btn btn-danger" onclick="refuser(2)">Refuser</button>
+                        </td>
+                    </tr>
+                    <!-- Plus de demandes peuvent être ajoutées ici -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+
+    <script>
+        // Exemple de fonctions d'action
+        function accepter(id) {
+            alert("Demande " + id + " acceptée!");
+            // Simuler l'acceptation dans le backend (ex: API pour mettre à jour la demande en base de données)
+            // Exemple : envoyer une requête AJAX pour marquer la demande comme acceptée.
+        }
+
+        function refuser(id) {
+            alert("Demande " + id + " refusée!");
+            // Simuler le refus dans le backend (ex: API pour marquer la demande comme refusée)
+            // Exemple : envoyer une requête AJAX pour marquer la demande comme refusée.
+        }
+    </script>
+    
+</body>
+</html>

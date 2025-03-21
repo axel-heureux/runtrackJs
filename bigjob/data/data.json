@@ -1,0 +1,35 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "username": "john_doe@laplateforme.io",
+        "password": "password123",
+        "role": "student"
+      },
+      {
+        "id": 2,
+        "username": "jane_smith@laplateforme.io",
+        "password": "securePass456",
+        "role": "moderator"
+      },
+      {
+        "id": 3,
+        "username": "admin_user@laplateforme.io",
+        "password": "adminPass789",
+        "role": "admin"
+      },
+      {
+        "id": 4,
+        "username": "peter_parker@laplateforme.io",
+        "password": "spiderMan123",
+        "role": "student"
+      },
+      {
+        "id": 5,
+        "username": "mary_jane@laplateforme.io",
+        "password": "maryJanePass1",
+        "role": "moderator"
+      }
+    ]
+  }
+  
